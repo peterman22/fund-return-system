@@ -1,0 +1,12 @@
+/vendor
+/node_modules
+.env
+/.idea
+/.vscode
+.DS_Store
+/public/storage
+/storage/*.key
+/storage/framework/*
+!/storage/framework/cache
+!/storage/framework/sessions
+!/storage/framework/views
