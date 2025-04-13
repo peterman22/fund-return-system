@@ -1,0 +1,103 @@
+{
+  "info": {
+    "name": "Fund Return Management System API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Create Fund",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "{{base_url}}/api/funds",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "api",
+            "funds"
+          ]
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"name\": \"My Investment Fund\",\n  \"initial_balance\": 1000\n}"
+        }
+      }
+    },
+    {
+      "name": "Add Return to Fund",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "{{base_url}}/api/funds/1/returns",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "api",
+            "funds",
+            "1",
+            "returns"
+          ]
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"return_type\": \"monthly\",\n  \"is_compound\": true,\n  \"percentage\": 5,\n  \"effective_date\": \"2024-01-01\"\n}"
+        }
+      }
+    },
+    {
+      "name": "Revert Return",
+      "request": {
+        "method": "DELETE",
+        "url": {
+          "raw": "{{base_url}}/api/returns/1",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "api",
+            "returns",
+            "1"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Get Fund Value at Date",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "{{base_url}}/api/funds/1/value?date=2024-03-01",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "api",
+            "funds",
+            "1",
+            "value"
+          ],
+          "query": [
+            {
+              "key": "date",
+              "value": "2024-03-01"
+            }
+          ]
+        }
+      }
+    }
+  ]
+}
