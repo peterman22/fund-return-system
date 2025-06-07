@@ -36,7 +36,11 @@ class FundController extends Controller
 
     public function getValueAt(Fund $fund, Request $request)
     {
-        $date = Carbon::parse($request->query('date'));
+        $validated = $request->validate([
+            'date' => 'required|date',
+        ]);
+
+        $date = Carbon::parse($validated['date']);
         $returns = $fund->returns()->where('effective_date', '<=', $date)->orderBy('effective_date')->get();
 
         $value = $fund->initial_balance;
